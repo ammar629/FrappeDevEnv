@@ -25,19 +25,12 @@ sudo mysql -e "GRANT ALL PRIVILEGES ON erpnext.* TO 'erpnext'@'localhost';"
 sudo mysql -e "FLUSH PRIVILEGES;"
 
 # Clone the ERPNext repository
-git clone https://github.com/frappe/erpnext.git --branch version-14 --depth 1
-cd erpnext
-
-# Install Python dependencies
-pip3 install -r requirements.txt
+git clone https://github.com/frappe/bench.git --depth 1
+sudo pip3 install -e bench/
 
 # Setup development mode
-bench init --frappe-branch version-14 --python python3 --dev
-
-# Configure site
+bench init frappe-bench --frappe-branch version-14 --python python3 --ignore-exist
 cd frappe-bench
-bench set-config site_config.json "db_name" "erpnext"
-bench set-config site_config.json "db_password" "password"
 
 # Install ERPNext
 bench --site erpnext install-app erpnext
