@@ -18,6 +18,21 @@ sudo apt install -y wkhtmltopdf
 sudo apt install -y mariadb-server
 sudo mysql_secure_installation
 
+# Configure MySQL for Frappe
+sudo tee -a /etc/mysql/my.cnf << EOF
+
+[mysqld]
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+
+[mysql]
+default-character-set = utf8mb4
+EOF
+
+# Restart MySQL service
+sudo service mysql restart
+
 # Create the ERPNext database and user
 sudo mysql -e "CREATE DATABASE erpnext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
 sudo mysql -e "CREATE USER 'erpnext'@'localhost' IDENTIFIED BY 'password';"
