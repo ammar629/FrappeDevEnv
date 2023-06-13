@@ -11,6 +11,9 @@ sudo apt install -y python3-pip python3.10-venv libssl-dev libffi-dev build-esse
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt install -y nodejs
 
+# Install yarn
+sudo npm install -g yarn
+
 # Install wkhtmltopdf
 sudo apt install -y wkhtmltopdf
 
