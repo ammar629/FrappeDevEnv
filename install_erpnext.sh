@@ -5,7 +5,7 @@ sudo apt update
 sudo apt upgrade -y
 
 # Install dependencies
-sudo apt install -y python3-pip python3-dev libssl-dev libffi-dev build-essential
+sudo apt install -y python3-pip python3.10-venv libssl-dev libffi-dev build-essential redis-server
 
 # Install Node.js
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
@@ -44,7 +44,7 @@ git clone https://github.com/frappe/bench.git --depth 1
 sudo pip3 install -e bench/
 
 # Setup development mode
-bench init frappe-bench --frappe-branch version-14 --python python3 --ignore-exist
+bench init frappe-bench --frappe-branch version-14 --python python3.10 --ignore-exist
 cd frappe-bench
 
 # Install ERPNext
