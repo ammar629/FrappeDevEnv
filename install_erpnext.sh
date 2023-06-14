@@ -50,6 +50,11 @@ sudo pip3 install -e bench/
 bench init frappe-bench --frappe-branch version-14 --python python3.10 --ignore-exist
 cd frappe-bench
 
+# Config Redis
+bench set-config -g redis_cache redis://redis-cache:6379
+bench set-config -g redis_queue redis://redis-queue:6379
+bench set-config -g redis_socketio redis://redis-socketio:6379
+
 # Install ERPNext
 bench --site erpnext install-app erpnext
 
