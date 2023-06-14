@@ -18,3 +18,6 @@ sudo ./install_erpnext.sh
 * Disallow Root Login Remotely -> N
 * Remove test database and access to it-> Y
 * Reload privileges tables now -> Y
+* Create new site
+* Install ErpNext on site
+* bench start
